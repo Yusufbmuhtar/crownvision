@@ -1,0 +1,28 @@
+services:
+  wordpress:
+    build: .
+    platform: linux/amd64
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wppassword
+      WORDPRESS_DB_NAME: wpdb
+    volumes:
+      - wp-data:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: wpdb
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wppassword
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  wp-data:
+  db-data:
