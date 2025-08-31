@@ -1,9 +1,11 @@
+version: "3.9"
+
 services:
   wordpress:
-    build: .
+    image: wordpress:6.6-apache
     platform: linux/amd64
     ports:
-      - "80:80"
+      - "8080:80"  # Localde 8080 portundan erişebilirsin
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wpuser
