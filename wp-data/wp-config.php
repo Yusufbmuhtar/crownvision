@@ -7,6 +7,9 @@ define('DB_PASSWORD', getenv('DB_PASSWORD'));
 define('DB_HOST', getenv('DB_HOST'));
 define('DB_CHARSET', 'utf8mb4');
 define('DB_COLLATE', '');
+define('WP_HOME', getenv('WP_HOME'));
+define('WP_SITEURL', getenv('WP_SITEURL'));
+
 
 /** Benzersiz anahtarlar ve tuz değerleri */
 define('AUTH_KEY',         'rastgele-bir-deger');
