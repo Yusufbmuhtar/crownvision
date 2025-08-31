@@ -1,9 +1,10 @@
 <?php
 /** WordPress için veritabanı ayarları */
-define('DB_NAME', 'wpdb');
-define('DB_USER', 'wpuser');
-define('DB_PASSWORD', 'wppassword');
-define('DB_HOST', 'db:3306');
+// Environment variable’lardan çekiyoruz, secret push edilmeyecek
+define('DB_NAME', getenv('DB_NAME'));
+define('DB_USER', getenv('DB_USER'));
+define('DB_PASSWORD', getenv('DB_PASSWORD'));
+define('DB_HOST', getenv('DB_HOST'));
 define('DB_CHARSET', 'utf8mb4');
 define('DB_COLLATE', '');
 
@@ -22,8 +23,6 @@ $table_prefix = 'wp_';
 
 /** Hata ayıklama modunu aktif etmek için true yapabilirsin */
 define('WP_DEBUG', false);
-
-/** Hepsi bu kadar. Mutlu bloglamalar! */
 
 /** WordPress dizinini belirt */
 if ( !defined('ABSPATH') )
