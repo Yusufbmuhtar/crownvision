@@ -1,7 +1,11 @@
-# WordPress için base image
+# Resmi WordPress image'ını baz al
 FROM wordpress:6.8-apache
 
-# Eğer wp-data klasöründeki içerikleri container'a kopyalamak istiyorsan:
-COPY wp-data/ /var/www/html/
+# Özel içerik veya tema dosyalarını kopyala (varsa)
+COPY ./wp-data/ /var/www/html/
 
-# Gerekirse Apache veya PHP konfig ayarları eklenebilir
+# PHP ayarlarını özelleştir (örneğin upload limitlerini artırmak için)
+COPY ./php.ini /usr/local/etc/php/conf.d/custom.ini
+
+# Apache üzerinde gerekli modülleri aktifleştir (örn. mod_rewrite)
+RUN a2enmod rewrite
